@@ -28,6 +28,7 @@ services:
             - /nfs/gitlab/config:/etc/gitlab
             - /nfs/gitlab/data:/var/opt/gitlab
             - /nfs/gitlab/certs:/certs
+            - /nfs/registry:/registry
         environment:
             - VIRTUAL_HOST=registry.elica.io, git.elica.io
             - VIRTUAL_PORT=80
