@@ -13,6 +13,8 @@ services:
             - /var/run/docker.sock:/tmp/docker.sock:ro
     gitlab:
         image: gitlab/gitlab-ee:latest
+        container_name: gitlab
+        hostname: git.elica.io
         restart: always
         ports:
             - "22:22"
