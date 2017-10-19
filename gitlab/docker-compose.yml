@@ -9,7 +9,7 @@ services:
             - "80:80"
             - "443:443"
         volumes:
-            - /home/siyuan/certs:/etc/nginx/certs
+            - /nfs/gitlab/certs:/etc/nginx/certs
             - /var/run/docker.sock:/tmp/docker.sock:ro
     gitlab:
         image: gitlab/gitlab-ee:latest
