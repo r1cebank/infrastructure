@@ -1,0 +1,20 @@
+{
+    "apps": [
+        {
+            "serverURL": "http://{HOST}:{PORT}/parse",
+            "appId": "{APP_ID}",
+            "masterKey": "{MASTER_KEY}",
+            "appName": "{APP_NAME}",
+            "iconName": "{APP_ICON}"
+        }
+    ],
+    "users": [
+        {
+            "user":"{APP_USER}",
+            "pass":"{APP_PASSWORD}"
+        }
+    ],
+    "useEncryptedPasswords": false,
+    "iconsFolder": "icons",
+    "trustProxy": 1
+}
