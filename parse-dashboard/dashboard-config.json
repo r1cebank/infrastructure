@@ -9,10 +9,6 @@
         }
     ],
     "users": [
-        {
-            "user":"{APP_USER}",
-            "pass":"{APP_PASSWORD}"
-        }
     ],
     "useEncryptedPasswords": false,
     "iconsFolder": "icons",

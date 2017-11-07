@@ -1,0 +1,2 @@
+dockergen: docker-gen -only-exposed -watch -notify "pm2 restart dashboard" /src/dashboard.tmpl /src/dashboard-config.json
+dashboard: pm2-docker start /src/pm2.json

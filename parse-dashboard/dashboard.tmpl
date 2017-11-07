@@ -1,0 +1,23 @@
+{
+    "apps": [
+        {{ range $host, $containers := groupByMulti $ "Env.ENABLE_PARSE_DASHBOARD" "," }}
+            {{ range $index, $value := $containers }}
+                {{ $network := index $value.Networks 0 }}
+                {{ with $address := index $value.Addresses 0 }}
+                    {
+                        "serverURL": "http://{{ $network.IP }}:{{ $address.Port }}/parse",
+                        "appId": "{{ $value.Env.PARSE_ENV_APP_ID }}",
+                        "masterKey": "{{ $value.Env.PARSE_ENV_MASTER_KEY }}",
+                        "appName": "{{ $value.Env.PARSE_ENV_APP_NAME }}",
+                        "iconName": "{{ $value.Env.PARSE_ENV_APP_ICON }}"
+                    }
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    ],
+    "users": [
+    ],
+    "useEncryptedPasswords": false,
+    "iconsFolder": "icons",
+    "trustProxy": 1
+}
