@@ -6,10 +6,10 @@
                 {{ with $address := index $value.Addresses 0 }}
                     {
                         "serverURL": "http://{{ $network.IP }}:{{ $address.Port }}/parse",
-                        "appId": "{{ $value.Env.PARSE_ENV_APP_ID }}",
-                        "masterKey": "{{ $value.Env.PARSE_ENV_MASTER_KEY }}",
-                        "appName": "{{ $value.Env.PARSE_ENV_APP_NAME }}",
-                        "iconName": "{{ $value.Env.PARSE_ENV_APP_ICON }}"
+                        "appId": "{{ $value.Env.PARSE_APP_ID }}",
+                        "masterKey": "{{ $value.Env.PARSE_MASTER_KEY }}",
+                        "appName": "{{ $value.Env.PARSE_APP_NAME }}",
+                        "iconName": "{{ $value.Env.PARSE_APP_ICON }}"
                     }
                 {{ end }}
             {{ end }}

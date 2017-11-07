@@ -25,24 +25,24 @@ function config() {
     sharedInstance.server.use(bodyParser.json());
     sharedInstance.server.use(expressValidator());
 
-    sharedInstance.masterKey = process.env.MASTER_KEY || crypto.randomBytes(20).toString('hex');
-    sharedInstance.appId = process.env.APP_ID || sharedInstance.serviceName;
+    sharedInstance.masterKey = process.env.PARSE_MASTER_KEY;
+    sharedInstance.appId = process.env.PARSE_APP_ID;
 
     const api = new ParseServer({
-        databaseURI: process.env.MONGO || 'mongodb://localhost:27017/dev',
+        databaseURI: process.env.PARSE_MONGO || 'mongodb://localhost:27017/dev',
         // cloud: '/home/myApp/cloud/main.js', // Absolute path to your Cloud Code
         appId: sharedInstance.appId,
         masterKey: sharedInstance.masterKey,
-        serverURL: `http://localhost:${process.env.PORT || 8080}/parse`,
-        publicServerURL: `http://localhost:${process.env.PORT || 8080}/parse`,
-        filesAdapter: new S3Adapter(
+        serverURL: process.env.PARSE_PUBLIC_URL || `http://localhost:${process.env.PORT || 8080}/parse`,
+        publicServerURL: process.env.PARSE_PUBLIC_URL || `http://localhost:${process.env.PORT || 8080}/parse`,
+        filesAdapter: process.env.PARSE_ENABLE_FILE ? new S3Adapter(
             Env.require('S3_ACCESS_KEY'),
             Env.require('S3_SECRET_KEY'),
             Env.require('S3_BUCKET'),
             {
                 directAccess: true
             }
-        )
+        ) : undefined
     });
     sharedInstance.server.use('/parse', api);
 
