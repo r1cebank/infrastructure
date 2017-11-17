@@ -11,6 +11,5 @@
     "users": [
     ],
     "useEncryptedPasswords": false,
-    "iconsFolder": "icons",
-    "trustProxy": 1
+    "iconsFolder": "icons"
 }

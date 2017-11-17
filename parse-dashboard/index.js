@@ -1,20 +1,9 @@
 const express = require('express');
 const crypto = require('crypto');
 const ParseDashboard = require('parse-dashboard');
-const config = require('./dashboard-config.json');
+const config = require('/data/config/dashboard-config.json');
 
-const dashboardConfig = Object.assign({}, config);
-
-// Set user
-
-dashboardConfig.users[0] = {
-    user: process.env.DASHBOARD_USER || 'user',
-    pass: process.env.DASHBOARD_PASS || crypto.randomBytes(20).toString('hex')
-};
-
-console.log('Current configuration', JSON.stringify(dashboardConfig.users, null, 4));
-
-var dashboard = new ParseDashboard(dashboardConfig);
+var dashboard = new ParseDashboard(config, { allowInsecureHTTP: process.env.ALLOW_INSECURE_HTTP });
 
 var app = express();
 
