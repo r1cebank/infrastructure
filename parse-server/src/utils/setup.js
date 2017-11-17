@@ -10,7 +10,7 @@ const Env = require('require-env');
 const Express = require('express');
 const expressValidator = require('express-validator');
 const bodyParser = require('body-parser');
-const { ParseServer, S3Adapter } = require('parse-server');
+const { ParseServer, S3Adapter, FileSystemAdapter } = require('parse-server');
 const crypto = require('crypto');
 
 const AppSingleton = require('./appsingleton');
@@ -42,7 +42,9 @@ function config() {
             {
                 directAccess: true
             }
-        ) : undefined
+        ) : new FileSystemAdapter({
+            filesSubDirectory: '/var/parse/file'
+        })
     });
     sharedInstance.server.use('/parse', api);
 
