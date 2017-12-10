@@ -1,0 +1,21 @@
+version: '2.1'
+
+
+services:
+    steamcache:
+        image: steamcache/steamcache:latest
+        container_name: steamcache
+        restart: always
+        ports:
+            - "80:80"
+        volumes:
+            - /nfs/cache:/data
+    steamcache-dns:
+        image: steamcache/steamcache-dns:latest
+        container_name: steamcache-dns
+        restart: always
+        ports:
+            - "53:53/udp"
+        environment:
+            - STEAMCACHE_IP=192.168.1.192
+            - VIRTUAL_PORT=80
