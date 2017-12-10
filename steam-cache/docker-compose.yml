@@ -9,7 +9,7 @@ services:
         ports:
             - "80:80"
         volumes:
-            - /nfs/cache:/data
+            - /nfs/cache:/data/cache
     steamcache-dns:
         image: steamcache/steamcache-dns:latest
         container_name: steamcache-dns
