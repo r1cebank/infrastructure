@@ -20,9 +20,9 @@
   },
   "homepage": "https://github.com/elicaio/elica-parse-server#readme",
   "devDependencies": {
-    "ava": "^0.23.0",
+    "ava": "^0.25.0",
     "eslint": "^4.10.0",
-    "eslint-config-r1cebank": "^0.0.2",
+    "eslint-config-r1cebank": "0.0.6",
     "eslint-html-reporter": "^0.5.2",
     "eslint-plugin-ava": "^4.0.0",
     "eslint-plugin-import": "^2.2.0",
@@ -39,8 +39,8 @@
     "caller": "^1.0.1",
     "continuation-local-storage": "^3.2.0",
     "express": "^4.14.1",
-    "express-validator": "^4.3.0",
-    "node-fetch": "^1.6.3",
+    "express-validator": "^5.0.3",
+    "node-fetch": "^2.1.1",
     "parse-server": "^2.4.1",
     "require-env": "^0.2.1"
   }
